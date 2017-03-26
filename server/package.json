@@ -1,0 +1,32 @@
+{
+  "name": "authentication-authorization",
+  "version": "1.0.0",
+  "description": "Authentication and authorization",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danangtamtomo/authentication-authorization.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danangtamtomo/authentication-authorization/issues"
+  },
+  "homepage": "https://github.com/danangtamtomo/authentication-authorization#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.1",
+    "crypto": "0.0.3",
+    "express": "^4.15.2",
+    "jsonwebtoken": "^7.3.0",
+    "mongodb": "^2.2.25",
+    "mongoose": "^4.9.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  }
+}

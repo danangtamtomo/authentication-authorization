@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Authen Author</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+    <button id="logout">Logout</button>
+    <h1>Login User</h1>
+    <div id="response"></div>
+
+    <script>
+        if (localStorage.getItem('token')) {
+            $.ajax({
+                url: "http://localhost:3000/",
+                type: "GET",
+                beforeSend: function(xhr){
+                    xhr.setRequestHeader('authentication', localStorage.getItem('token'))
+                },
+                success: function(res) { 
+                    if (res) {
+                        $('#response').children('p').each(function () {
+                            
+                        })
+                    }
+                }
+            });
+        } else {
+            $.get('http://localhost:3000/', function(response) {
+                $('#response').append(response.message)
+            })
+        }
+
+        $('#logout').on('click', function () {
+            $.ajax({
+                type: 'GET',
+                url: 'http://localhost:3000/auth/logout',  
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('authentication', localStorage.getItem('token'))
+                },
+                success: function (res) {
+                   localStorage.removeItem('token') 
+                   window.location.href = 'index.html'
+                }
+            })
+        })
+    </script>
+</body>
+</html>

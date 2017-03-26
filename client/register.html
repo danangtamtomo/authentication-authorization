@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Authen Author</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+    Name <input type="text" id="name">
+    Email <input type="text" id="email">
+    Password <input type="password" id="password">
+    <button id="register">Register</button>
+    <script>
+        $('#register').on('click', () => {
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:3000/register',
+                data: {
+                    email: $('#email').val(),
+                    password: $('#password').val(),
+                    login_status: 'offline'
+                },
+                success: (response) => {
+                    window.location.href = 'index.html'
+                },
+            })
+        })
+    </script>
+</body>
+</html>
